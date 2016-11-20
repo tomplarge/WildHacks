@@ -136,15 +136,21 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo" translatesAutoresizingMaskIntoConstraints="NO" id="V7g-cG-JQ8">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njm-bC-wYm">
-                                <rect key="frame" x="0.0" y="90" width="375" height="74"/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.37893395390070922" colorSpace="calibratedRGB"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="TheButton" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-ZT-EYH">
+                                <rect key="frame" x="64" y="84" width="247" height="87"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="1" green="0.23211569907234142" blue="0.25730949226730004" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njm-bC-wYm">
+                                <rect key="frame" x="45" y="90" width="285" height="74"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="74" id="nRm-j1-nSr"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="31"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="36"/>
                                 <state key="normal" title="Start New Trip">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" red="0.26559138230000001" green="1" blue="0.271981156" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="UKJ-zH-Nqc" kind="show" id="QS7-eM-f3r"/>
@@ -213,7 +219,7 @@
                                 </date>
                             </datePicker>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Trip Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tdm-TY-0EP">
-                                <rect key="frame" x="16" y="76" width="343" height="30"/>
+                                <rect key="frame" x="16" y="78" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -224,29 +230,35 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Write overview here" translatesAutoresizingMaskIntoConstraints="NO" id="33T-7E-54W">
-                                <rect key="frame" x="0.0" y="120" width="375" height="79"/>
+                                <rect key="frame" x="0.0" y="122" width="375" height="77"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.1975842199" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOT-GV-G5i">
-                                <rect key="frame" x="310" y="32" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOT-GV-G5i">
+                                <rect key="frame" x="310" y="32" width="42" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="DoneTripCreator:" destination="UKJ-zH-Nqc" eventType="touchUpInside" id="Rtp-CK-169"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEf-Oa-NZ2">
-                                <rect key="frame" x="12" y="32" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
+                                <rect key="frame" x="12" y="32" width="53" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="onCancel:" destination="UKJ-zH-Nqc" eventType="touchUpInside" id="0U8-LK-1is"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start New Trip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Klh-Ds-Dmr">
-                                <rect key="frame" x="121.5" y="32" width="132.5" height="32.5"/>
-                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="21"/>
+                                <rect key="frame" x="130" y="32" width="115.5" height="34"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -358,13 +370,14 @@
     </scenes>
     <resources>
         <image name="Photo" width="2560" height="1440"/>
+        <image name="TheButton" width="519" height="242"/>
         <image name="camera tab" width="32" height="32"/>
         <image name="home tab" width="32" height="32"/>
         <image name="iconmonstr-photo-camera-7-48white" width="48" height="48"/>
         <image name="map tab" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="34u-QK-qmZ"/>
+        <segue reference="uMP-MV-5Ms"/>
         <segue reference="hPm-Ec-tnw"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

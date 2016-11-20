@@ -13,7 +13,6 @@ class MapViewController: UIViewController{
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var MapView: MKMapView!
-    @IBOutlet weak var MapSearchBar: UISearchBar!
     
     let locationManager = CLLocationManager()
     var resultSearchController:UISearchController? = nil
@@ -29,14 +28,14 @@ class MapViewController: UIViewController{
         if (appDelegate.TripArray.count <= 0){
             self.alert(title: "Wait!", message: "You don't have any trips yet, start one to add pictures!")
         } else {
-        if CLLocationManager.locationServicesEnabled(){
-            locationManager.delegate = self
-            
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.requestLocation()
-        }
-        let annotations = getMapAnnotations()
-        MapView.addAnnotations(annotations)
+            if CLLocationManager.locationServicesEnabled(){
+                locationManager.delegate = self
+                
+                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+                locationManager.requestLocation()
+            }
+            let annotations = getMapAnnotations()
+            MapView.addAnnotations(annotations)
         }
     }
     
