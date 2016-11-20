@@ -262,7 +262,7 @@
 				TargetAttributes = {
 					E4290BA91DE01F9100426366 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = AD3DP74R5T;
+						DevelopmentTeam = TBX3J6EHDL;
 						LastSwiftMigration = 0810;
 					};
 					E4290BBD1DE01F9100426366 = {
@@ -610,10 +610,10 @@
 			baseConfigurationReference = F17606F45C42BF6D0B7DA37F /* Pods-Hackathon Project.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AD3DP74R5T;
+				DEVELOPMENT_TEAM = TBX3J6EHDL;
 				INFOPLIST_FILE = "Hackathon Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.HackathonProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WildHacks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -624,10 +624,10 @@
 			baseConfigurationReference = 60E1FF48A8F3901DA47F099B /* Pods-Hackathon Project.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = AD3DP74R5T;
+				DEVELOPMENT_TEAM = TBX3J6EHDL;
 				INFOPLIST_FILE = "Hackathon Project/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.HackathonProject;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WildHacks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

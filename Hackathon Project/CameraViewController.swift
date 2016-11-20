@@ -141,17 +141,22 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let path = documentsDirectory.appendingPathComponent(plist)
         
         var dict:NSMutableDictionary?
-        if appDelegate.TripArray.count > 0 {
+        let currTrip = appDelegate.TripArray[appDelegate.TripArray.count - 1] as! TripObject
+        if currTrip.photos.count > 1 {
             dict = NSMutableDictionary(contentsOfFile: path)
+            dict!.setObject(id, forKey: key as NSCopying)
+            //writing to plist
+            dict!.write(toFile: path, atomically: false)
         } else {
             dict = ["XInitializerItem": "DoNotEverChangeMe"]
+            dict!.setObject(id, forKey: key as NSCopying)
+            //writing to plist
+            dict!.write(toFile: path, atomically: false)
         }
         //saving values
-        dict!.setObject(id, forKey: key as NSCopying)
         print(id, key)
         
-        //writing to plist
-        dict!.write(toFile: path, atomically: false)
+
         
         //        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
         //        print("Saved \(plist) file is --> \(resultDictionary?.description)")
