@@ -71,7 +71,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         CameraUI.allowsEditing = true
         CameraUI.sourceType = UIImagePickerControllerSourceType.camera
         self.present(CameraUI, animated: true, completion: nil)
-
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -101,7 +101,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
                 locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
                 locationManager.requestLocation()
             }
-
+            
         }
         
         dismiss(animated: true, completion: nil)
@@ -131,7 +131,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
             print("error: nil lat or long")
         }
         view.endEditing(true)
-
+        
     }
     
     func saveLocationData(id:[AnyObject], key:String, plist:String) {
@@ -140,17 +140,57 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let documentsDirectory = paths.object(at: 0) as! NSString
         let path = documentsDirectory.appendingPathComponent(plist)
         
-        var dict: NSMutableDictionary = ["XInitializerItem": "DoNotEverChangeMe"]
+        var dict:NSMutableDictionary?
+        if appDelegate.TripArray.count > 0 {
+            dict = NSMutableDictionary(contentsOfFile: path)
+        } else {
+            dict = ["XInitializerItem": "DoNotEverChangeMe"]
+        }
         //saving values
-        dict.setObject(id, forKey: key as NSCopying)
+        dict!.setObject(id, forKey: key as NSCopying)
         print(id, key)
         
-        //writing to GameData.plist
-        dict.write(toFile: path, atomically: false)
+        //writing to plist
+        dict!.write(toFile: path, atomically: false)
         
-        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
-        print("Saved \(plist) file is --> \(resultDictionary?.description)")
+        //        let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+        //        print("Saved \(plist) file is --> \(resultDictionary?.description)")
+        print("Saved \(plist) file is --> \(dict?.description)")
     }
+    /*
+     // getting path to plist
+     let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as NSArray
+     let documentsDirectory = paths[0] as! String
+     let plistText = "\(plistName).plist"
+     let path = (documentsDirectory as NSString).appendingPathComponent(plistText)
+     
+     let fileManager = FileManager.default
+     
+     //check if file exists
+     if(!fileManager.fileExists(atPath: path)) {
+     // If it doesn't, copy it from the default file in the Bundle
+     if let bundlePath = Bundle.main.path(forResource: plistName, ofType: "plist") {
+     
+     let resultDictionary = NSMutableDictionary(contentsOfFile: bundlePath)
+     print("Bundle test file is --> \(resultDictionary?.description)")
+     do {
+     try fileManager.copyItem(atPath: bundlePath, toPath: path)
+     print("copy")
+     } catch {
+     print("error copying")
+     }
+     
+     } else {
+     print("\(plistName).plist not found. Please, make sure it is part of the bundle.")
+     }
+     } else {
+     print("\(plistName).plist already exists at path.")
+     // use this to delete file from documents directory
+     //fileManager.removeItemAtPath(path, error: nil)
+     }
+     
+     let resultDictionary = NSMutableDictionary(contentsOfFile: path)
+     */
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         var locValue: CLLocationCoordinate2D = (manager.location?.coordinate)!
